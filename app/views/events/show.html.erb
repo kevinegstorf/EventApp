@@ -1,25 +1,28 @@
 <article>
   <header>
-	<h1><%= @event.name %></h>
+    <h1><%= @event.name %></h1>
   </header>
-    <p>
-		<%= @event.description %>
-    </p>
-	<h3>When</h3>
-	<p>
-		<%= @event.starts_at.to_s %>
-	</p>
-	<h3>Where</h3>
-	<p>
-		<%= @event.location %>
-	</p>
-	<h3>Price</h3>
-	<p>
-		<%= format_price(@event) %>
-	</p>
+  <p>
+    <%= @event.description %>
+  </p>
+  <h3>When</h3>
+  <p>
+    <%= @event.starts_at %>
+  </p>
+  <h3>Where</h3>
+  <p>
+    <%= @event.location %>
+  </p>
+  <h3>Price</h3>
+  <p>
+    <%= format_price(@event) %>
+  </p>
 </article>
 
-<%= link_to "All Events", root_path %>
-<%= link_to "Edit", edit_event_path(@event)%>
-<%= link_to "Delete", event_path(@event), methode: :delete, 
-			data: {confirm: 'Are you sure?'} %>
+<footer>
+  <nav>
+    <%= link_to("All Events", events_path) %> |
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </nav>
+</footer>

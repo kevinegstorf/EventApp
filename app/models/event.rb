@@ -3,9 +3,9 @@ class Event < ActiveRecord::Base
 
   validates :description, length: {minimum: 25}
 
-  validates :price, numerically: {greater_than_or_egual_to: 0}
+  validates :price, numericality: {greater_than_or_equal_to: 0}
 
-  validates :capacity, numerically: {only_integer: true, greater_than: 0}
+  validates :capacity, numericality: {only_integer: true, greater_than: 0}
 
   validates :image_file_name, allow_blank: true, format: {
   	with:   /\w+\.(gif|jpg|png)\z/i, 
